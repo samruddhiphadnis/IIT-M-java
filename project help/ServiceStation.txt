@@ -1,0 +1,76 @@
+
+field-
+public static final String custFilePath = "customer.sun";
+	public static final String billFilePath = "billing.sun";
+	private LinkedList<Bill> billList;
+	private HashSet<Customer> custList;
+
+
+constructor
+public ServiceStation() {
+		billList = new LinkedList<>();
+		custList = new HashSet<>();
+	}
+
+getter -setter
+
+method - 
+public List<Bill> getBillList(Date date){
+}
+public double computeCash(Date date){
+}
+public ServiceRequest newRequest(String customer, String vehNumber){
+}
+public Bill newBill(ServiceRequest req){
+}
+public void newBill(Bill bill){
+}
+	public void storeBillDetails() {
+		FileOutputStream fout = null;
+		ObjectOutputStream oout = null;
+		try {
+			fout = new FileOutputStream(billFilePath);
+			oout = new ObjectOutputStream(fout);
+			oout.writeObject(billList);
+			oout.flush();
+		} catch (Exception e) {
+			throw new DataIOException("Billing Store Failed", e);
+		} finally {
+			try {
+				if (oout != null)
+					oout.close();
+				if (fout != null)
+					fout.close();
+			} catch (Exception e2) {
+			}
+		}
+	}
+	public void loadBillDetails() {
+		FileInputStream fin = null;
+		ObjectInputStream oin = null;
+		try {
+			fin = new FileInputStream(billFilePath);
+			oin = new ObjectInputStream(fin);
+			billList = (LinkedList<Bill>) oin.readObject();
+		} catch(FileNotFoundException e) {
+			System.out.println("Bill File Not Found.");
+			System.out.println("Bill List will be Empty.");
+			return;
+		} catch (Exception e) {
+			throw new DataIOException("Billing Load Failed", e);
+		} finally {
+			try {
+				if (oin != null)
+					oin.close();
+				if (fin != null)
+					fin.close();
+			} catch (Exception e2) {
+			}
+		}
+	}
+
+
+
+
+
+
