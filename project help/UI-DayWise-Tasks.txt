@@ -1,0 +1,21 @@
+27-01-2025 - Welcome window,  Customer GUI and part GUI functionality
+
+
+
+28-01-2025 - Vehicle functionality, Main/Home window
+
+
+
+29-01-2025 - service request functionality, select vehicle from list, create new service, maintenance service
+
+
+
+30-01-2025 - GUI for bill and payment process.
+
+
+
+31-01-2025 - presentation and final evaluation of project
+
+
+
+01-02-2025 -  Technical and HR interview
